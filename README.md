@@ -6,4 +6,8 @@
 
 Like [core::str::Lines](https://doc.rust-lang.org/core/str/struct.Lines.html) or [these](https://doc.rust-lang.org/serialize/?search=Iter), but for JSON.
 
+## docs
+
+Find them [here](https://softprops.github.io/jed)
+
 Doug Tangren (softprops) 2015
