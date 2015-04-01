@@ -1,10 +1,8 @@
 language: rust
-
 script:
-    - cargo build
-    - cargo test
-    - cargo bench
-
+- cargo build
+- cargo test
+- cargo bench
 after_success: |
   [ $TRAVIS_BRANCH = master ] &&
   [ $TRAVIS_PULL_REQUEST = false ] &&
@@ -13,7 +11,6 @@ after_success: |
   sudo pip install ghp-import &&
   ghp-import -n target/doc &&
   git push -fq https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git gh-pages
-
-env: 
-  global: 
-    secure: cMCaACPpwMfl11KABH2ozSUr3cRJeWU9YO9quJfCKjodpKi7tggm2bLXOWsiP1woV4oXRBsh4MX3mp6NKUBI0sXa9Khudr4OlmdE51bzyK2V/nFTvNgkqn9yl18E07uLxaq4xHmTcfja1ICrCMvgMYI/a18qldAybKtLb4h03zQ=
+env:
+  global:
+    secure: ZwF7j/DGMoMUduAWp5K4VddaTZLsoBNYinqNByBuptvPMbzNO1Q+ymDIufhEMl/BhRxLZGUhBLP2058+OuTl+SZ/aUoXWTBcmgZ5hX4lsnrmqzVn8ybT9v8D+vvL0jLjt2aNhRfHWyjXCJMtbBBWo7tHBkYxOJRhX/aaSY0gIHc=
