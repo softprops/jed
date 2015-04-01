@@ -10,4 +10,13 @@ Like [core::str::Lines](https://doc.rust-lang.org/core/str/struct.Lines.html) or
 
 Find them [here](https://softprops.github.io/jed)
 
+## install
+
+Add the following to your `Cargo.toml`
+
+```toml
+[dependencies]
+sysly = "0.0.1"
+```
+
 Doug Tangren (softprops) 2015
