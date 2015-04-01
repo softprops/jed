@@ -55,6 +55,12 @@ mod tests {
   use std::io::{ empty, BufReader };
 
   #[test]
+  fn test_not_json_iter() {
+    let reader = BufReader::new("bogus".as_bytes());
+    assert_eq!(Iter::new(reader).count(), 0);
+  }
+
+  #[test]
   fn test_empty_iter() {
     assert_eq!(Iter::new(empty()).count(), 0);
   }
