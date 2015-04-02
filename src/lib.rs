@@ -1,6 +1,6 @@
 #![feature(io,test)]
 
-//! jed is creates Json iterators over instances of io.Read
+//! jed creates Json iterators over instances of io.Read
 
 extern crate rustc_serialize;
 extern crate test;
