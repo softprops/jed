@@ -5,10 +5,9 @@
 extern crate rustc_serialize;
 extern crate test;
 
+use std::io::{ Chars, Read };
 use std::iter::Iterator;
-use std::io::Chars;
 use rustc_serialize::json::{ Json, Builder };
-use std::io::Read;
 
 /// An iterator over the Json elements of an io::Read stream
 pub struct Iter<R> {
