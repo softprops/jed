@@ -1,3 +1,4 @@
+#![deny(missing_docs)]
 #![feature(io,test)]
 
 //! jed creates Json iterators over instances of io.Read
@@ -15,6 +16,7 @@ pub struct Iter<R> {
 }
 
 impl<R: Read> Iter<R> {
+  /// Create a new Iter instance
   pub fn new(inner: R) -> Iter<R> {
     Iter { inner: inner }
   }
