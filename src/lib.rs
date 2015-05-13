@@ -1,10 +1,9 @@
 #![deny(missing_docs)]
-#![feature(io,test)]
+#![cfg_attr(all(test, feature = "nightly"), feature(test))]
 
 //! jed creates Json iterators over instances of io.Read
 
 extern crate rustc_serialize;
-extern crate test;
 
 use std::io::{ Chars, Read };
 use std::iter::Iterator;
