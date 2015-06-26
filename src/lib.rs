@@ -30,26 +30,21 @@ impl<R: Read> Iterator for Iter<R> {
   type Item = Json;
 
   fn next(&mut self) -> Option<Json> {
-
-    fn chomp<R: Read>(mut chars: Chars<R>, buf: &mut String) -> Option<Json> { 
-      match chars.next() {
-        Some(Ok(c)) => {
-          buf.push(c);
-          match c {
-            '}' | ']' => {
-              let cbuf = buf.clone();
-              match Builder::new(cbuf.chars()).build() {
-                Ok(j) => Some(j),
-                    _ => chomp(chars, buf)
-              }
-            }, _ =>
-              chomp(chars, buf)
-          }
-        }, _ => None
+    let ref mut inner = self.inner;
+    let mut chars = Chars { inner: inner };
+    let mut buf = String::new();
+    while let Some(Ok(c)) = chars.next() {
+      buf.push(c);
+      match c {
+        '}' | ']' =>
+          match Builder::new(buf.chars()).build() {
+            Ok(j) => return Some(j),
+            _ => ()
+          },
+        _ => ()
       }
     }
-    let ref mut inner = self.inner;
-    chomp(Chars { inner: inner }, &mut String::new())
+    None
   }
 }
 
